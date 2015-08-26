@@ -1,11 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
 <head>
 <meta http-equiv="content-type" content="text/html" charset=utf-8"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>matt eiraldi</title>
-<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <style type="text/css">
     html, body { 
         height:100%;
@@ -72,6 +70,7 @@
     </div>
     <div class="image_wrapper"><div>
 </div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
     var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '9.jpg', 'letterversion.png'];
 var random = Math.floor(Math.random() * images.length);
@@ -83,7 +82,7 @@ imgLoad.bind("load", function () {
     imgLoad.appendTo('.image_wrapper');
     if(images[random] == "letterversion.png"){
         $("#wrapper").css({
-            zoom:1.58 
+            zoom:1.45 
         });
     }
 
