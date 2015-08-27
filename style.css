@@ -34,7 +34,11 @@
         overflow:hidden;
     }
     #wrapper {
-        min-height:100%;
+        /*allows for centered (special) browser zoom*/
+        /*min-height:100%;*/
+
+        height:100%;
+        /*max-height:100%;*/
     }
     .image_wrapper {
         position:relative;
@@ -44,9 +48,9 @@
         overflow: hidden;
      }
     .image_wrapper img {
-        /*position:absolute;*/
-        position: fixed;
-        z-index: 999;
+        position:absolute;
+        /*position: fixed;
+        z-index: 999;*/
         left:50%;
         top:50%;
         /*margin-left:-1000px;
