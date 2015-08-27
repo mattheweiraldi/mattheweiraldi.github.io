@@ -48,9 +48,9 @@
         overflow: hidden;
      }
     .image_wrapper img {
-        position:absolute;
+        /*position:absolute;
         left:50%;
-        top:50%;
+        top:50%;*/
         /*margin-left:-1000px;
         margin-top:-175px;*/
     }
