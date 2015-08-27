@@ -34,7 +34,6 @@
         overflow:hidden;
     }
     #wrapper {
-        position:relative;
         min-height:100%;
     }
     .image_wrapper {
@@ -45,7 +44,9 @@
         overflow: hidden;
      }
     .image_wrapper img {
-        position:absolute;
+        /*position:absolute;*/
+        position: fixed;
+        z-index: 999;
         left:50%;
         top:50%;
         /*margin-left:-1000px;
