@@ -53,11 +53,14 @@ function onResizeConstantWidth() {
  
 function onResizeConstantHeight() { 
     //var constantHeight = window.outerHeight * .9;
-    //var constantHeight = (window).height();
-    var constantHeight = window.screen.height*.8;
+    var constantHeight = $("#wrapper").height();
+    //var constantHeight = window.screen.height*.8;
+    
     $(".image_wrapper").height(constantHeight);        
-    alert(constantHeight);
+    //alert(constantHeight);
+    
     $(".image_wrapper img").each(function(){
+            
         var calculatedWidth = ($(this).width()*constantHeight)/$(this).height(); 
         
         $(this).css({
@@ -69,7 +72,7 @@ function onResizeConstantHeight() {
     });
 }
     
-//$(window).bind("resize", onResizeConstantHeight);
+$(window).bind("resize", onResizeConstantHeight);
 </script>
 
 </body>
