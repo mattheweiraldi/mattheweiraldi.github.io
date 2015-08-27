@@ -3,10 +3,6 @@
         margin:0px; 
     }    
     .nav {
-        //border:1px solid black;
-        //width:160px;
-        //height:70%;
-        //top:15%;
         top:6px;
         left:15px;
         position:absolute;
@@ -38,6 +34,7 @@
         overflow:hidden;
     }
     #wrapper {
+        position:relative;
         min-height:100%;
     }
     .image_wrapper {
@@ -48,9 +45,9 @@
         overflow: hidden;
      }
     .image_wrapper img {
-        /*position:absolute;
+        position:absolute;
         left:50%;
-        top:50%;*/
+        top:50%;
         /*margin-left:-1000px;
         margin-top:-175px;*/
     }
