@@ -27,33 +27,20 @@ imgLoad.attr("src", "images/"+images[random]);
 imgLoad.unbind("load");
 imgLoad.bind("load", function () {
     imgLoad.appendTo('.image_wrapper');
-    if(images[random] == "letterversion.png"){
-        $("#wrapper").css({
-            zoom:1.45 
-        });
-    }
 
     onResizeConstantHeight();
 
-    //if(images[random] == "letterversion.png")
-    //{
-    //    onResizeConstantHeight();
-    //    $(window).bind("resize", onResizeConstantWidth);
-    //} else {
-    //    onResizeConstantHeight();    
-    //    $(window).bind("resize", onResizeConstantHeight);    
-    //}
 });
 
 function onResizeConstantWidth() {
     var constantWidth = window.outerWidth;
 
-    // Resize the #wrapper to its childrens widths
     $("#wrapper").width(constantWidth);        
 
     $(".image_wrapper img").each(function(){
         var calculatedHeight = ($(this).height()*constantWidth)/$(this).width(); 
-	$(this).css({
+        
+        $(this).css({
             width: constantWidth + "px",
 	        height: calculatedHeight + "px",
 	        marginLeft: "-" + constantWidth/2 + "px",
@@ -62,21 +49,14 @@ function onResizeConstantWidth() {
     });
 }
  
-function onResizeConstantHeight() {
- 
-    var constantHeight = window.outerHeight * .9;
-    //alert(constantHeight);
-    // Resize the #wrapper to its childrens widths
-    //$("#wrapper").width(window.innerWidth * $(".image_wrapper").length);
+function onResizeConstantHeight() { 
+    //var constantHeight = window.outerHeight * .9;
+    var constantHeight = (window).height();
     $("#wrapper").height(constantHeight);        
-
-    // Resize the image wrapper to be full screen
-    //$(".image_wrapper").height(window.innerHeight);        
-
     $(".image_wrapper img").each(function(){
-        //alert($(this).height() + " " + $(this).width());
         var calculatedWidth = ($(this).width()*constantHeight)/$(this).height(); 
-	$(this).css({
+        
+        $(this).css({
             width: calculatedWidth + "px",
 	        height: constantHeight + "px",
 	        marginLeft: "-" + calculatedWidth/2 + "px",
@@ -85,7 +65,6 @@ function onResizeConstantHeight() {
     });
 }
     
-// Bind the onResize function
 //$(window).bind("resize", onResizeConstantHeight);
 </script>
 
