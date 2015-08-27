@@ -55,7 +55,7 @@ function onResizeConstantHeight() {
     //var constantHeight = window.outerHeight * .9;
     //var constantHeight = (window).height();
     var constantHeight = window.screen.height*.8;
-    $("#wrapper").height(constantHeight);        
+    $(".image_wrapper").height(constantHeight);        
     alert(constantHeight);
     $(".image_wrapper img").each(function(){
         var calculatedWidth = ($(this).width()*constantHeight)/$(this).height(); 
