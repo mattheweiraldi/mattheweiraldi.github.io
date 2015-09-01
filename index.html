@@ -21,57 +21,56 @@ http://tripleodeon.com/2011/12/first-understand-your-screen/
 </div>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
-    var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '9.jpg', 'letterversion.png'];
+var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '9.jpg', 'letterversion.png'];
 var random = Math.floor(Math.random() * images.length);
-var imgLoad = $("<img />")
+var imgLoad = $("<img />");
+var constantWH = 0;
 
 imgLoad.attr("src", "images/"+images[random]);
 imgLoad.unbind("load");
 imgLoad.bind("load", function () {
     imgLoad.appendTo('.image_wrapper');
-
-    onResizeConstantHeight();
-
+    
+    if (images[random] == "letterversion.png") {
+        constantWH = 0;
+        onResizeConstantHeight(constantWH);
+    } else {
+        constantWH = 1;
+        onResizeConstantHeight(constantWH);
+    }
 });
-
-function onResizeConstantWidth() {
-    var constantWidth = window.outerWidth;
-
-    $("#wrapper").width(constantWidth);        
-
-    $(".image_wrapper img").each(function(){
-        var calculatedHeight = ($(this).height()*constantWidth)/$(this).width(); 
-        
-        $(this).css({
-            width: constantWidth + "px",
-	        height: calculatedHeight + "px",
-	        marginLeft: "-" + constantWidth/2 + "px",
-    	    marginTop: "-" + calculatedHeight/2 + "px" 
-        });    
-    });
-}
  
-function onResizeConstantHeight() { 
+function onResizeConstantHeight(e) { 
+    var constantWidth = $("#wrapper").width() * .98
     var constantHeight = $("#wrapper").height() * .92;
+    
     //var constantHeight = window.screen.height * .8;
-    //var constantHeight = document.body.clientHeight;
+    //var constantHeight = document.body.clientHeight; 
     
-    //$(".image_wrapper").height(constantHeight);        
-    //alert(constantHeight);
-    
-    $(".image_wrapper img").each(function(){
-            
-        var calculatedWidth = ($(this).width()*constantHeight)/$(this).height(); 
-        
-        $(this).css({
-            width: calculatedWidth + "px",
-	        height: constantHeight + "px",
-	        marginLeft: "-" + calculatedWidth/2 + "px",
-    	    marginTop: "-" + constantHeight/2 + "px" 
-        });    
-    });
+    if (constantWH == 0) {
+        $(".image_wrapper img").each(function(){
+            var calculatedHeight = ($(this).height()*constantWidth)/$(this).width(); 
+            $(this).css({
+                width: constantWidth + "px",
+	            height: calculatedHeight + "px",
+	            marginLeft: "-" + constantWidth/2 + "px",
+    	        marginTop: "-" + calculatedHeight/2 + "px" 
+            });    
+        });
+   
+    } else {
+        $(".image_wrapper img").each(function(){    
+            var calculatedWidth = ($(this).width()*constantHeight)/$(this).height(); 
+            $(this).css({
+                width: calculatedWidth + "px",
+	            height: constantHeight + "px",
+	            marginLeft: "-" + calculatedWidth/2 + "px",
+    	        marginTop: "-" + constantHeight/2 + "px" 
+            });    
+        });
+    }
 }
-    
+   
 $(window).bind("resize", onResizeConstantHeight);
 </script>
 
