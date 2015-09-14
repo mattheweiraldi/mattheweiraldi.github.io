@@ -41,7 +41,9 @@ imgLoad.bind("load", function () {
 });
  
 function onResizeConstantHeight(e) { 
-    var constantWidth = $("#wrapper").width() * .98
+    // for neurotransmitter
+    var constantWidth = $("#wrapper").width() * .82
+    // for all other images    
     var constantHeight = $("#wrapper").height() * .92;
     
     //var constantHeight = window.screen.height * .8;
@@ -54,7 +56,9 @@ function onResizeConstantHeight(e) {
                 width: constantWidth + "px",
 	            height: calculatedHeight + "px",
 	            marginLeft: "-" + constantWidth/2 + "px",
-    	        marginTop: "-" + calculatedHeight/2 + "px" 
+                // neurotransmitter is scrollable. stands out as welcome?
+                //marginTop: "-" + calculatedHeight/2 + "px", 
+                top: 0 + "px"    
             });    
         });
    
@@ -65,7 +69,7 @@ function onResizeConstantHeight(e) {
                 width: calculatedWidth + "px",
 	            height: constantHeight + "px",
 	            marginLeft: "-" + calculatedWidth/2 + "px",
-    	        marginTop: "-" + constantHeight/2 + "px" 
+    	        marginTop: "-" + constantHeight/2 + "px", 
             });    
         });
     }
