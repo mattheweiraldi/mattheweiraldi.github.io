@@ -13,70 +13,25 @@ http://tripleodeon.com/2011/12/first-understand-your-screen/
 <title>matt eiraldi</title>
 </head>
 <body>
-<div id="wrapper">
-    <div class="nav">
-        <a href="mailto:matthew.eiradi@gmail.com">matt eiraldi</a>
+    <div id="wrapper">
+        <div class="nav">
+            <a href="mailto:matthew.eiraldi@gmail.com">matt eiraldi</a>
+        </div>
+        <div class="image_wrapper"><div>
     </div>
-    <div class="image_wrapper"><div>
-</div>
-<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript">
-var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '9.jpg', 'letterversion.png'];
-var random = Math.floor(Math.random() * images.length);
-var imgLoad = $("<img />");
-var constantWH = 0;
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '9.jpg', 'letterversion.png'];
+        var random = Math.floor(Math.random() * images.length);
+        var $wrapper = $('#wrapper');
+        var $imgWrapper = $('.image_wrapper');
 
-imgLoad.attr("src", "images/"+images[random]);
-imgLoad.unbind("load");
-imgLoad.bind("load", function () {
-    imgLoad.appendTo('.image_wrapper');
-    
-    if (images[random] == "letterversion.png") {
-        constantWH = 0;
-        onResizeConstantHeight(constantWH);
-    } else {
-        constantWH = 1;
-        onResizeConstantHeight(constantWH);
-    }
-});
- 
-function onResizeConstantHeight(e) { 
-    // for neurotransmitter
-    var constantWidth = $("#wrapper").width() * .82
-    // for all other images    
-    var constantHeight = $("#wrapper").height() * .92;
-    
-    //var constantHeight = window.screen.height * .8;
-    //var constantHeight = document.body.clientHeight; 
-    
-    if (constantWH == 0) {
-        $(".image_wrapper img").each(function(){
-            var calculatedHeight = ($(this).height()*constantWidth)/$(this).width(); 
-            $(this).css({
-                width: constantWidth + "px",
-	            height: calculatedHeight + "px",
-	            marginLeft: "-" + constantWidth/2 + "px",
-                // neurotransmitter is scrollable. stands out as welcome?
-                //marginTop: "-" + calculatedHeight/2 + "px", 
-                top: 0 + "px"    
-            });    
-        });
-   
-    } else {
-        $(".image_wrapper img").each(function(){    
-            var calculatedWidth = ($(this).width()*constantHeight)/$(this).height(); 
-            $(this).css({
-                width: calculatedWidth + "px",
-	            height: constantHeight + "px",
-	            marginLeft: "-" + calculatedWidth/2 + "px",
-    	        marginTop: "-" + constantHeight/2 + "px", 
-            });    
-        });
-    }
-}
-   
-$(window).bind("resize", onResizeConstantHeight);
-</script>
-
+        $imgWrapper.css('background-image', 'url(images/'+images[random]+')');
+        $imgWrapper.css('background-position', 'center');
+        $imgWrapper.css('background-repeat', 'no-repeat');
+        $imgWrapper.css('background-size', 'contain');
+        $wrapper.css('box-sizing', 'border-box');
+        $wrapper.css('padding', '0 50px 0 50px');
+    </script>
 </body>
 </html>
