@@ -25,12 +25,12 @@ http://tripleodeon.com/2011/12/first-understand-your-screen/
     <script type="text/javascript">
         var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '9.jpg', 'letterversion.png'];
         var random = Math.floor(Math.random() * images.length);
-        random = 7;
+        var imageIndex = random;
+
         var $wrapper = $('#wrapper');
-        var $imgWrapper = $('.image_wrapper');
-        
+        var $imgWrapper = $('.image_wrapper');        
         $imgWrapper.css('background-image', 'url(images/'+images[random]+')');
-       
+
         function ResizeOptions() {
             if(images[random] != 'letterversion.png') {
                 $imgWrapper.css('background-position', 'center');
@@ -39,7 +39,9 @@ http://tripleodeon.com/2011/12/first-understand-your-screen/
                 $wrapper.css('box-sizing', 'border-box');
                 //$wrapper.css('padding', '0 110px 0 0');
                 //$wrapper.css('min-width', '600px');
-            } else {
+            } 
+            <!--
+            else {
                 //$imgWrapper.css('position', 'absolute');
                 //$imgWrapper.css('z-index','-1');
                 //$wrapper.css('z-index','-2');
@@ -54,7 +56,17 @@ http://tripleodeon.com/2011/12/first-understand-your-screen/
                 //$wrapper.css('padding', '0 110px 0 0');
                 //$wrapper.css('padding', '0 2px 0 2px');
             }
+            -->
         }
+
+        $imgWrapper.click(function(){
+            if(imageIndex >= 0 && imageIndex < images.length - 1) {
+                imageIndex += 1;
+            } else {
+                imageIndex = 0;
+            }
+            $(this).css('background-image', 'url(images/'+images[imageIndex]+')');
+        });
 
         ResizeOptions();
     </script>
