@@ -14,24 +14,49 @@ http://tripleodeon.com/2011/12/first-understand-your-screen/
 </head>
 <body>
     <div id="wrapper">
-        <div class="nav">
-            <a href="mailto:matthew.eiraldi@gmail.com">matt eiraldi</a>
-        </div>
-        <div class="image_wrapper"><div>
+        <div class="nav"><a href="mailto:matthew.eiraldi@gmail.com">matt eiraldi aka beanbuckeT</A></div>
+        <div class="topFlexMargin">dd</div>
+        <div class="leftFlexMargin">dd</div>
+        <div class="image_wrapper"></div>
+        <div class="rightFlexMargin">dd</div>
+        <div class="footer">dd</div>
     </div>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript">
         var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '9.jpg', 'letterversion.png'];
         var random = Math.floor(Math.random() * images.length);
+        random = 7;
         var $wrapper = $('#wrapper');
         var $imgWrapper = $('.image_wrapper');
-
+        
         $imgWrapper.css('background-image', 'url(images/'+images[random]+')');
-        $imgWrapper.css('background-position', 'center');
-        $imgWrapper.css('background-repeat', 'no-repeat');
-        $imgWrapper.css('background-size', 'contain');
-        $wrapper.css('box-sizing', 'border-box');
-        $wrapper.css('padding', '0 50px 0 50px');
+       
+        function ResizeOptions() {
+            if(images[random] != 'letterversion.png') {
+                $imgWrapper.css('background-position', 'center');
+                $imgWrapper.css('background-repeat', 'no-repeat');
+                $imgWrapper.css('background-size', 'contain');
+                $wrapper.css('box-sizing', 'border-box');
+                //$wrapper.css('padding', '0 110px 0 0');
+                //$wrapper.css('min-width', '600px');
+            } else {
+                //$imgWrapper.css('position', 'absolute');
+                //$imgWrapper.css('z-index','-1');
+                //$wrapper.css('z-index','-2');
+                $imgWrapper.css('width', '100%');
+
+                $('body').css('background-color', 'red');
+                
+                $imgWrapper.css('background-position','top left'); 
+                $imgWrapper.css('background-repeat', 'no-repeat');
+                $imgWrapper.css('background-size', 'cover');
+                $wrapper.css('box-sizing', 'border-box');
+                //$wrapper.css('padding', '0 110px 0 0');
+                //$wrapper.css('padding', '0 2px 0 2px');
+            }
+        }
+
+        ResizeOptions();
     </script>
 </body>
 </html>
