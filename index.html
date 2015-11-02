@@ -26,6 +26,8 @@ http://tripleodeon.com/2011/12/first-understand-your-screen/
         var images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '9.jpg', 'letterversion.png', 'austrianpollen.jpg', 'glen&i.jpg', 'greening.jpg', 'poppy.jpg', 'preciouswalker.jpg', 'slobber.jpg', 'sprayboy.jpg', '10.jpg', '11.jpg', '12.jpg', '!.jpg'];
         var random = Math.floor(Math.random() * images.length);
         var imageIndex = random;
+        
+        var styleAB = 0;
 
         var $wrapper = $('#wrapper');
         var $imgWrapper = $('.image_wrapper');        
@@ -59,13 +61,22 @@ http://tripleodeon.com/2011/12/first-understand-your-screen/
             -->
         }
 
-        $imgWrapper.click(function(){
+        $imgWrapper.click(function() {
             if(imageIndex >= 0 && imageIndex < images.length - 1) {
                 imageIndex += 1;
             } else {
                 imageIndex = 0;
             }
             $(this).css('background-image', 'url(images/'+images[imageIndex]+')');
+            if(styleAB == 0) {
+                $('.nav').css('line-height', '100%');
+                $('.nav > a').css('display', 'inline-block');
+                styleAB = 1;    
+            } else {
+                $('.nav').css('line-height', '147%');
+                $('.nav > a').css('display', 'inline'); 
+                styleAB = 0;
+            }
         });
 
         ResizeOptions();
